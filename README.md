@@ -1,6 +1,6 @@
 # Teste_Software_Mutantes_2024_Andrade_Rodrigo
 
-Instalação
+## Instalação
 
 Crie um ambiente venv e então execute o comando:
 pip install -r requirements.txt
