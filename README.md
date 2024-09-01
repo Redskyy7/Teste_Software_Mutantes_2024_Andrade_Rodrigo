@@ -18,5 +18,5 @@ mutmut run
 ## Para ver os resultados
 mutmut results
 
-## #Para gerar um html exibindo as mudanças feitas pelo mutmut
+## Para gerar um html exibindo as mudanças feitas pelo mutmut
 mutmut html
