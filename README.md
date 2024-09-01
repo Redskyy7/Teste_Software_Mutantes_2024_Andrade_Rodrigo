@@ -1,5 +1,7 @@
 # Teste_Software_Mutantes_2024_Andrade_Rodrigo
 
+Realizando testes de mutação no projeto https://github.com/dmerejkowsky/todos-tdd
+
 ## Instalação
 
 Crie um ambiente venv e então execute o comando:
