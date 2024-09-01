@@ -1,0 +1,398 @@
+<html><body><h1>./todos.py</h1>Killed 37 out of 73 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 1</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -5,7 +5,7 @@
+ 
+ 
+ def main():
+-    db_path = Path("tasks.db")
++    db_path = Path("XXtasks.dbXX")
+     repository = SQLiteRepository(db_path)
+     task_manager = TaskManager()
+     task_manager.set_repository(repository)
+</pre><h3>Mutant 2</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -5,7 +5,7 @@
+ 
+ 
+ def main():
+-    db_path = Path("tasks.db")
++    db_path = None
+     repository = SQLiteRepository(db_path)
+     task_manager = TaskManager()
+     task_manager.set_repository(repository)
+</pre><h3>Mutant 3</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -6,7 +6,7 @@
+ 
+ def main():
+     db_path = Path("tasks.db")
+-    repository = SQLiteRepository(db_path)
++    repository = None
+     task_manager = TaskManager()
+     task_manager.set_repository(repository)
+     task_manager.load_tasks()
+</pre><h3>Mutant 4</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -7,7 +7,7 @@
+ def main():
+     db_path = Path("tasks.db")
+     repository = SQLiteRepository(db_path)
+-    task_manager = TaskManager()
++    task_manager = None
+     task_manager.set_repository(repository)
+     task_manager.load_tasks()
+     print(task_manager)
+</pre><h3>Mutant 5</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -10,7 +10,7 @@
+     task_manager = TaskManager()
+     task_manager.set_repository(repository)
+     task_manager.load_tasks()
+-    print(task_manager)
++    print(None)
+     while True:
+         command = input(">>> ")
+         if command in ("quit", "q"):
+</pre><h3>Mutant 6</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -11,7 +11,7 @@
+     task_manager.set_repository(repository)
+     task_manager.load_tasks()
+     print(task_manager)
+-    while True:
++    while False:
+         command = input(">>> ")
+         if command in ("quit", "q"):
+             break
+</pre><h3>Mutant 7</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -12,7 +12,7 @@
+     task_manager.load_tasks()
+     print(task_manager)
+     while True:
+-        command = input(">>> ")
++        command = input("XX>>> XX")
+         if command in ("quit", "q"):
+             break
+         action = parse(command)
+</pre><h3>Mutant 8</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -12,7 +12,7 @@
+     task_manager.load_tasks()
+     print(task_manager)
+     while True:
+-        command = input(">>> ")
++        command = None
+         if command in ("quit", "q"):
+             break
+         action = parse(command)
+</pre><h3>Mutant 9</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -13,7 +13,7 @@
+     print(task_manager)
+     while True:
+         command = input(">>> ")
+-        if command in ("quit", "q"):
++        if command not in ("quit", "q"):
+             break
+         action = parse(command)
+         if not action:
+</pre><h3>Mutant 10</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -13,7 +13,7 @@
+     print(task_manager)
+     while True:
+         command = input(">>> ")
+-        if command in ("quit", "q"):
++        if command in ("XXquitXX", "q"):
+             break
+         action = parse(command)
+         if not action:
+</pre><h3>Mutant 11</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -13,7 +13,7 @@
+     print(task_manager)
+     while True:
+         command = input(">>> ")
+-        if command in ("quit", "q"):
++        if command in ("quit", "XXqXX"):
+             break
+         action = parse(command)
+         if not action:
+</pre><h3>Mutant 12</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -14,7 +14,7 @@
+     while True:
+         command = input(">>> ")
+         if command in ("quit", "q"):
+-            break
++            continue
+         action = parse(command)
+         if not action:
+             print("invalid command")
+</pre><h3>Mutant 13</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -15,7 +15,7 @@
+         command = input(">>> ")
+         if command in ("quit", "q"):
+             break
+-        action = parse(command)
++        action = None
+         if not action:
+             print("invalid command")
+             continue
+</pre><h3>Mutant 14</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -16,7 +16,7 @@
+         if command in ("quit", "q"):
+             break
+         action = parse(command)
+-        if not action:
++        if  action:
+             print("invalid command")
+             continue
+         task_manager.execute(action)
+</pre><h3>Mutant 15</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -17,7 +17,7 @@
+             break
+         action = parse(command)
+         if not action:
+-            print("invalid command")
++            print("XXinvalid commandXX")
+             continue
+         task_manager.execute(action)
+         print(task_manager)
+</pre><h3>Mutant 16</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -18,7 +18,7 @@
+         action = parse(command)
+         if not action:
+             print("invalid command")
+-            continue
++            break
+         task_manager.execute(action)
+         print(task_manager)
+ 
+</pre><h3>Mutant 17</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -20,7 +20,7 @@
+             print("invalid command")
+             continue
+         task_manager.execute(action)
+-        print(task_manager)
++        print(None)
+ 
+ 
+ class SQLiteRepository:
+</pre><h3>Mutant 20</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -27,7 +27,7 @@
+     def __init__(self, path):
+         self.path = path
+         if not self.path.exists():
+-            connection = sqlite3.connect(self.path)
++            connection = None
+             with open("schema.sql") as f:
+                 connection.execute(f.read())
+                 connection.commit()
+</pre><h3>Mutant 21</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -28,7 +28,7 @@
+         self.path = path
+         if not self.path.exists():
+             connection = sqlite3.connect(self.path)
+-            with open("schema.sql") as f:
++            with open("XXschema.sqlXX") as f:
+                 connection.execute(f.read())
+                 connection.commit()
+ 
+</pre><h3>Mutant 32</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -60,9 +60,7 @@
+         cursor.execute("SELECT number, done, description FROM tasks")
+         res = []
+         for row in cursor.fetchall():
+-            task = Task(
+-                number=row["number"], done=row["done"], description=row["description"]
+-            )
++            task = None
+             res.append(task)
+         return res
+ 
+</pre><h3>Mutant 33</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -67,7 +67,7 @@
+         return res
+ 
+     def delete_task(self, *, number):
+-        cursor = self.connection.cursor()
++        cursor = None
+         cursor.execute("DELETE FROM tasks WHERE number=?", (number,))
+         self.connection.commit()
+ 
+</pre><h3>Mutant 34</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -68,7 +68,7 @@
+ 
+     def delete_task(self, *, number):
+         cursor = self.connection.cursor()
+-        cursor.execute("DELETE FROM tasks WHERE number=?", (number,))
++        cursor.execute("XXDELETE FROM tasks WHERE number=?XX", (number,))
+         self.connection.commit()
+ 
+     def update_task(self, *, number, done):
+</pre><h3>Mutant 35</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -72,7 +72,7 @@
+         self.connection.commit()
+ 
+     def update_task(self, *, number, done):
+-        cursor = self.connection.cursor()
++        cursor = None
+         cursor.execute("XXUPDATE tasks SET done=? WHERE number=?", (done, number))
+         self.connection.commit()    
+ 
+</pre><h3>Mutant 37</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -79,7 +79,7 @@
+ 
+ class TaskManager:
+     def __init__(self):
+-        self.repository = None
++        self.repository = ""
+ 
+     def set_repository(self, repository):
+         self.repository = repository
+</pre><h3>Mutant 39</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -105,7 +105,7 @@
+         self.repository.update_task(number=action.number, done=action.done)
+ 
+     def __str__(self):
+-        tasks = self.load_tasks()
++        tasks = None
+         if not tasks:
+             return "Nothing to be done yet"
+         return "\n".join(str(t) for t in tasks)
+</pre><h3>Mutant 40</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -106,7 +106,7 @@
+ 
+     def __str__(self):
+         tasks = self.load_tasks()
+-        if not tasks:
++        if  tasks:
+             return "Nothing to be done yet"
+         return "\n".join(str(t) for t in tasks)
+ 
+</pre><h3>Mutant 41</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -107,7 +107,7 @@
+     def __str__(self):
+         tasks = self.load_tasks()
+         if not tasks:
+-            return "Nothing to be done yet"
++            return "XXNothing to be done yetXX"
+         return "\n".join(str(t) for t in tasks)
+ 
+ 
+</pre><h3>Mutant 42</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -108,7 +108,7 @@
+         tasks = self.load_tasks()
+         if not tasks:
+             return "Nothing to be done yet"
+-        return "\n".join(str(t) for t in tasks)
++        return "XX\nXX".join(str(t) for t in tasks)
+ 
+ 
+ def parse(cmd):
+</pre><h3>Mutant 66</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -151,7 +151,7 @@
+         return f"{self.number} {box} {self.description}"
+ 
+     def __repr__(self):
+-        return f"Task<#{self.number} - {self.description} done: {self.done}>"
++        return f"XXTask<#{self.number} - {self.description} done: {self.done}>XX"
+ 
+     def __eq__(self, other):
+         return (
+</pre><h3>Mutant 67</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -155,7 +155,7 @@
+ 
+     def __eq__(self, other):
+         return (
+-            self.number == other.number
++            self.number != other.number
+             and self.description == other.description
+             and self.done == other.done
+         )
+</pre><h3>Mutant 68</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -156,7 +156,7 @@
+     def __eq__(self, other):
+         return (
+             self.number == other.number
+-            and self.description == other.description
++            and self.description != other.description
+             and self.done == other.done
+         )
+ 
+</pre><h3>Mutant 69</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -157,7 +157,7 @@
+         return (
+             self.number == other.number
+             and self.description == other.description
+-            and self.done == other.done
++            and self.done != other.done
+         )
+ 
+ 
+</pre><h3>Mutant 70</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -155,8 +155,7 @@
+ 
+     def __eq__(self, other):
+         return (
+-            self.number == other.number
+-            and self.description == other.description
++            self.number == other.number or self.description == other.description
+             and self.done == other.done
+         )
+ 
+</pre><h3>Mutant 72</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -165,6 +165,6 @@
+     return cmd[2:]
+ 
+ 
+-if __name__ == "__main__":
++if __name__ != "__main__":
+     main()
+ 
+</pre><h3>Mutant 73</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -165,6 +165,6 @@
+     return cmd[2:]
+ 
+ 
+-if __name__ == "__main__":
++if __name__ == "XX__main__XX":
+     main()
+ 
+</pre><h3>Mutant 74</h3><pre>--- ./todos.py
++++ ./todos.py
+@@ -73,7 +73,7 @@
+ 
+     def update_task(self, *, number, done):
+         cursor = self.connection.cursor()
+-        cursor.execute("XXUPDATE tasks SET done=? WHERE number=?", (done, number))
++        cursor.execute("XXXXUPDATE tasks SET done=? WHERE number=?XX", (done, number))
+         self.connection.commit()    
+ 
+ 
+</pre></body></html>
